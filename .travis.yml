@@ -1,13 +1,24 @@
 language: ruby
 rvm:
-  - 2.5.1
+- 2.5.1
 before_script:
-  - bundle exec rake db:create --all
-  - bundle exec rake db:migrate
+- bundle exec rake db:create --all
+- bundle exec rake db:migrate
 script:
-  - bundle exec rake ci:tests
+- bundle exec rake ci:tests
 services:
-  - postgresql
+- postgresql
 notifications:
   email:
     on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: tKnm0VOxFZb6Nsljj/hUnXig4Yz37YX4YQ8nZOu/bYuv+6xxYqXdV7KnhzLDSrsnzPI+ggn0OKjwg/76LdppypEBWlC/fwaoyi7vE9BNkdkngY3U6Du6koFyEH80lGZYTmCgaJlxpmLFSHRYDWttN4RwHylFiW0EzGne+yLbThEigGEO6R7J6AAoifHnBGevgmuy9Ump7FXgXBGT2sscmKPwOYWxNiGpahxZgOAdaGvA3i5aA1EYl/lHtAVX3wutStZjttbe+VL0zTVCxkqFzIS1Y4/5oSdxzDddUtSUh7lW7dhmKl+DJSn1nJpyRV9nYIF3bcszh0WCWo7qxRJClNLP+QQHE9AtrCaIXhTOQYEznVvVb6e6QhMZJTalZdaavKyhPFgi8iLkyeQsssu0GmUHnlUebrFpoSn+wFmClM5QZpcAtoy2gvw5Zwz1sSTuIUG6D376hqmulhsbytMsqxOCIUwrXLEFljmt0HXW/epG8XvBEhM8vhSq3i8ErOqYFfROzMBhYPGbhBNToceeo/ZEjYh7ccJD8WBvZ16K2bYQZQ4ql5K8hXKdjhXXaswiTOduFPrsEalMN+kkwEBdGxLe9cprNi5F4p6Ok3pXMqMaosAwR4pCXNZoEN/qQVgS8zq6rP/et65vxeBnMcGWXWv8JNHx1icr75w2uhuIr2U=
+  app:
+    develop: zeit-tracker-dev
+    master: zeit-tracker
+  on:
+    repo: tomasBustamante/time-tracker
+  run:
+    - "rails db:migrate"
