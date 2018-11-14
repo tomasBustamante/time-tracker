@@ -1,2 +1,2 @@
-# time_tracker
+# Time tracker
 Aplicación del seguimiento de horas trabajadas
