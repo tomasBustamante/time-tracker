@@ -10,7 +10,7 @@ Aplicación que permite el registro y seguimiento de las horas trabajadas por d�
 ## Despliegue a Heroku
 
 -   Producción: <https://zeit-tracker.herokuapp.com/>
--   Desarrollo: <ttps://zeit-tracker-dev.herokuapp.com/>
+-   Desarrollo: <https://zeit-tracker-dev.herokuapp.com/>
 
 ## Configuración inicial
 
