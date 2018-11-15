@@ -1,0 +1,12 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @proyecto.nombre %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @proyecto.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_proyecto_path(@proyecto) %> |
+<%= link_to 'Atrás', proyectos_path %>
