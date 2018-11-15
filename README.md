@@ -1,8 +1,8 @@
 # Time Tracker
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/130b63d0d7d64eb592cc0d168202a326)](https://app.codacy.com/app/tomasBustamante/time-tracker?utm_source=github.com&utm_medium=referral&utm_content=tomasBustamante/time-tracker&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/tomasBustamante/time-tracker.svg?branch=master)](https://travis-ci.org/tomasBustamante/time-tracker)
 [![Coverage Status](https://coveralls.io/repos/github/tomasBustamante/time-tracker/badge.svg?branch=master)](https://coveralls.io/github/tomasBustamante/time-tracker?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/130b63d0d7d64eb592cc0d168202a326)](https://app.codacy.com/app/tomasBustamante/time-tracker?utm_source=github.com&utm_medium=referral&utm_content=tomasBustamante/time-tracker&utm_campaign=Badge_Grade_Settings)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Aplicación que permite el registro y seguimiento de las horas trabajadas por día asociadas a tareas de diversos proyectos.
