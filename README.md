@@ -9,8 +9,8 @@ Aplicación que permite el registro y seguimiento de las horas trabajadas por d�
 
 ## Despliegue a Heroku
 
--  Producción: https://zeit-tracker.herokuapp.com/
--  Desarrollo: https://zeit-tracker-dev.herokuapp.com/
+-   Producción: <https://zeit-tracker.herokuapp.com/>
+-   Desarrollo: <ttps://zeit-tracker-dev.herokuapp.com/>
 
 ## Configuración inicial
 
@@ -78,7 +78,7 @@ exit
 
 5.  Instalación de dependencias:
 
-  El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
+    El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
 
 ```console
 $ bundle install
@@ -93,7 +93,7 @@ $ rails db:migrate
 
 7.  Instalación de los _frameworks_ de pruebas automatizadas:
 
-  El siguiente comando instala Rspec para las pruebas unitarias:
+    El siguiente comando instala Rspec para las pruebas unitarias:
 
 ```console
 $ bundle exec rails generate rspec:install
@@ -119,16 +119,16 @@ $ bundle exec cucumber
 
 ## Procedimiento de trabajo
 
--  La primera vez:
+-   La primera vez:
 
 ```console
 $ git clone https://github.com/tomasBustamante/time-tracker.git
 $ cd time-tracker
 ```
 
--  Siempre:
+-   Siempre:
 
-  Descarga de la última versión:
+   Descarga de la última versión:
 
 ```console
 $ git pull origin master
