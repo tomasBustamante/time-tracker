@@ -8,5 +8,7 @@
   <%= @proyecto.descripcion %>
 </p>
 
-<%= link_to 'Editar', edit_proyecto_path(@proyecto) %> |
-<%= link_to 'Atrás', proyectos_path %>
+<%= link_to 'Editar', edit_proyecto_path(@proyecto),
+    :class => "btn btn-secondary btn-sm" %> |
+<%= link_to 'Atrás', proyectos_path,
+    :class => "btn btn-secondary btn-sm" %>
