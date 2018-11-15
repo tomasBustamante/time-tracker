@@ -5,6 +5,11 @@
 
 Aplicación que permite el registro y seguimiento de las horas trabajadas por día asociadas a tareas de diversos proyectos.
 
+## Despliegue a Heroku
+
+-  Producción: https://zeit-tracker.herokuapp.com/
+-  Desarrollo: https://zeit-tracker-dev.herokuapp.com/
+
 ## Configuración inicial
 
 1.  Instalación de Ruby
