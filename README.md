@@ -5,7 +5,7 @@
 
 Aplicación que permite el registro y seguimiento de las horas trabajadas por día asociadas a tareas de diversos proyectos.
 
-### Configuración inicial
+## Configuración inicial
 
 1.  Instalación de Ruby
 
@@ -42,14 +42,14 @@ postgres-#     VALID UNTIL 'infinity';
 CREATE ROLE
 ```
 
-Otorgar privilegios de _superusuario_:
+  Otorgar privilegios de _superusuario_:
 
 ```console
 postgres=# ALTER ROLE tomas with superuser;
 ALTER ROLE
 ```
 
-Ver lista de usuarios:
+  Ver lista de usuarios:
 
 ```console
 postgres=# \du
@@ -61,17 +61,17 @@ postgres=# \du
            | Password valid until infinity                              |  
 ```
 
-Salir de psql:
+  Salir de psql:
 
 ```console
 postgres=# \q
-postgres@multivac:/home/tomas/Documents/time-tracker$ exit
+$ exit
 exit
 ```
 
 5.  Instalación de dependencias:
 
-El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
+  El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
 
 ```console
 $ bundle install
@@ -86,31 +86,31 @@ $ rails db:migrate
 
 7.  Instalación de los _frameworks_ de pruebas automatizadas:
 
-El siguiente comando instala Rspec para las pruebas unitarias:
+  El siguiente comando instala Rspec para las pruebas unitarias:
 
 ```console
 $ bundle exec rails generate rspec:install
 ```
 
-Al ejecutar la siguiente línea se corren todas las pruebas unitarias existentes (al principio ninguna) si se instaló correctamente:
+  Al ejecutar la siguiente línea se corren todas las pruebas unitarias existentes (al principio ninguna) si se instaló correctamente:
 
 ```console
 $ bundle exec rspec
 ```
 
-Instalación de Cucumber para las pruebas de aceptación:
+  Instalación de Cucumber para las pruebas de aceptación:
 
 ```console
 $ bundle exec rails g cucumber:install
 ```
 
-La siguiente línea no debería dar error si se instaló correctamente:
+  La siguiente línea no debería dar error si se instaló correctamente:
 
 ```console
-bundle exec cucumber
+$ bundle exec cucumber
 ```
 
-### Procedimiento de trabajo
+## Procedimiento de trabajo
 
 -  La primera vez:
 
@@ -121,13 +121,13 @@ $ cd time-tracker
 
 -  Siempre:
 
-Descarga de la última versión:
+  Descarga de la última versión:
 
 ```console
 $ git pull origin master
 ```
 
-Agregar archivos nuevos y/o modificados:
+  Agregar archivos nuevos y/o modificados:
 
 ```console
 $ git add .
@@ -135,7 +135,7 @@ $ git commit -m "Comentario descriptivo de los cambios"
 $ git push origin master
 ```
 
-### Referencias
+## Referencias
 
 1.  [Tutorial de configuración inicial](https://medium.com/craft-academy/getting-started-with-rails-tests-continuous-integration-deployment-7b5bfec905a5)
 2.  [Tutorial oficial de Rails](https://edgeguides.rubyonrails.org/getting_started.html)
