@@ -146,3 +146,4 @@ $ git push origin master
 
 1.  [Tutorial de configuración inicial](https://medium.com/craft-academy/getting-started-with-rails-tests-continuous-integration-deployment-7b5bfec905a5)
 2.  [Tutorial oficial de Rails](https://edgeguides.rubyonrails.org/getting_started.html)
+3.  [Pruebas de aceptación con Cucumber](https://semaphoreci.com/community/tutorials/introduction-to-writing-acceptance-tests-with-cucumber)
