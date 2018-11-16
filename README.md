@@ -128,7 +128,7 @@ $ cd time-tracker
 
 -   Siempre:
 
-   Descarga de la última versión:
+    Descarga de la última versión:
 
 ```console
 $ git pull origin master
