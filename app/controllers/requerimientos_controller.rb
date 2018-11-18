@@ -1,12 +1,10 @@
 class RequerimientosController < ApplicationController
   def show
-    @proyecto = Proyecto.find(params[:proyecto_id])
-    @requerimiento = @proyecto.requerimientos.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:requerimiento_id])
   end
 
   def edit
-    @proyecto = Proyecto.find(params[:proyecto_id])
-    @requerimiento = @proyecto.requerimientos.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:requerimiento_id])
   end
 
   def create
@@ -23,8 +21,7 @@ class RequerimientosController < ApplicationController
   end
 
   def update
-    @proyecto = Proyecto.find(params[:proyecto_id])
-    @requerimiento = @proyecto.requerimientos.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:requerimiento_id])
 
     if @requerimiento.update(requerimiento_params)
       redirect_to @requerimiento

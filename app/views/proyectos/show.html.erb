@@ -50,26 +50,28 @@
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Mostrar</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
+        <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
     <% @proyecto.requerimientos.each do |requerimiento| %>
       <tr>
+        <th scoe="row"><%= requerimiento.id %></td>
         <td><%= requerimiento.nombre %></td>
         <td><%= requerimiento.descripcion %></td>
-        <td><%= link_to 'Mostrar', proyecto_path(@proyecto),
-                :class => "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Editar',  edit_proyecto_requerimiento_path(:proyecto_id => @proyecto.id),
-                :class => "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Eliminar', proyecto_path(@proyecto),
-                :class => "btn btn-secondary btn-sm",
-                method: :delete,
-                data: { confirm: '¿Estás seguro?' } %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', proyecto_path(@proyecto),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Editar', edit_proyecto_requerimiento_path(@proyecto.id),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Eliminar', proyecto_path(@proyecto),
+              :class => "btn btn-secondary btn-sm",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %>
+        </td>
       </tr>
     <% end %>
     </tbody>
