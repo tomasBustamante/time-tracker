@@ -14,15 +14,15 @@
     </div>
   <% end %>
 
-  <p>
+  <div class="form-group">
     <%= form.label :nombre %><br>
-    <%= form.text_field :nombre %>
-  </p>
+    <%= form.text_field :nombre, :class => "form-control"  %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= form.label :descripcion %><br>
-    <%= form.text_area :descripcion %>
-  </p>
+    <%= form.text_area :descripcion, :class => "form-control" %>
+  </div>
 
   <p>
     <%= form.submit %>
