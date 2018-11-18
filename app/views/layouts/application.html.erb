@@ -25,7 +25,10 @@
             <%= link_to 'Proyectos', proyectos_path, :class => "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Tareas</a>
+            <a class="nav-link" href="#">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Recursos</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
@@ -36,9 +39,7 @@
     </nav>
 
     <main role="main" class="container">
-      <div class="jumbotron">
         <%= yield %>
-      </div>
     </main>
   </body>
 </html>
