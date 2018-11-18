@@ -67,7 +67,7 @@
               :class => "btn btn-secondary btn-sm" %>
           <%= link_to 'Editar', edit_proyecto_requerimiento_path(@proyecto.id),
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Eliminar', proyecto_path(@proyecto),
+          <%= link_to 'Eliminar', [requerimiento.proyecto, requerimiento],
               :class => "btn btn-secondary btn-sm",
               method: :delete,
               data: { confirm: '¿Estás seguro?' } %>
