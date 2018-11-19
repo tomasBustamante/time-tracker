@@ -1,10 +1,16 @@
 class RequerimientosController < ApplicationController
+  def index
+    @requerimiento = Requerimiento.all
+  end
+
   def show
-    @requerimiento = Requerimiento.find(params[:requerimiento_id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
+    @requerimiento = @proyecto.requerimientos.find(params[:id])
   end
 
   def edit
-    @requerimiento = Requerimiento.find(params[:requerimiento_id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
+    @requerimiento = @proyecto.requerimientos.find(params[:id])
   end
 
   def create

@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item"><%= link_to @proyecto.nombre, proyecto_path(@proyecto) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @requerimiento.nombre %></li>
+  </ol>
+</nav>
+
+<h2>Detalles del requerimiento</h2>
+<hr>
+<p>
+  <strong>Nombre:</strong>
+  <%= @requerimiento.nombre %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @requerimiento.descripcion %>
+</p>
