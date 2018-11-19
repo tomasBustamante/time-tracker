@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2018_11_19_181106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "recursos", force: :cascade do |t|
+    t.string "nombre"
+    t.text "rol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "registro_horas", force: :cascade do |t|
     t.datetime "hora_inicio"
     t.datetime "hora_fin"

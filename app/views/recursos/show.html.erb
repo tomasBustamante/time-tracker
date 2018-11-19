@@ -1,0 +1,21 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Recursos', recursos_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @recurso.nombre %></li>
+  </ol>
+</nav>
+
+<h2>Detalle</h2><hr>
+<p>
+  <strong>Nombre:</strong>
+  <%= @recurso.nombre %>
+</p>
+ 
+<p>
+  <strong>Rol:</strong>
+  <%= @recurso.rol %>
+</p>
+
+<%= link_to 'Atrás', recursos_path,
+    :class => "btn btn-secondary btn-sm" %>
