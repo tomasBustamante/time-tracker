@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :tareas
     end
   end
+  resources :registro_horas
 
   root 'welcome#index'
 end

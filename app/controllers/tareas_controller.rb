@@ -7,7 +7,12 @@ class TareasController < ApplicationController
     @tarea = Tarea.find(params[:id])
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.find(params[:requerimiento_id])
-    #@tarea = @requerimiento.tareas.find(params[:id])
+  end
+
+  def edit
+    @tarea = Tarea.find(params[:id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
+    @requerimiento = @proyecto.requerimientos.find(params[:requerimiento_id])
   end
 
   def create
