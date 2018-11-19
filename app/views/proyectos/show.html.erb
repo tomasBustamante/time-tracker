@@ -1,0 +1,73 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @proyecto.nombre %></li>
+  </ol>
+</nav>
+
+<h2>Detalles del proyecto</h2><hr>
+<p>
+  <strong>Nombre:</strong>
+  <%= @proyecto.nombre %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @proyecto.descripcion %>
+</p>
+
+<hr>
+
+<h3>Requerimientos</h3>
+
+<p>
+  <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#nuevoRequerimiento" aria-expanded="false" aria-controls="nuevoRequerimiento">
+    Nuevo requerimiento
+  </button>
+</p>
+
+<div class="collapse" id="nuevoRequerimiento">
+  <div class="card card-body">
+    <h3>Agregar requerimiento</h3>
+    <%= render 'requerimientos/form' %>
+  </div>
+</div>
+
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @proyecto.requerimientos.each do |requerimiento| next if requerimiento.new_record? %>
+      <tr>
+        <th scoe="row"><%= requerimiento.id %></td>
+        <td><%= requerimiento.nombre %></td>
+        <td><%= requerimiento.descripcion %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', [requerimiento.proyecto, requerimiento],
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Editar', [requerimiento.proyecto, requerimiento],
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Eliminar', [requerimiento.proyecto, requerimiento],
+              :class => "btn btn-secondary btn-sm",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</p>
+<hr>
+
+<%= link_to 'Editar proyecto', edit_proyecto_path(@proyecto),
+    :class => "btn btn-secondary btn-sm" %>
+<%= link_to 'Atrás', proyectos_path,
+    :class => "btn btn-secondary btn-sm" %>

@@ -1,0 +1,42 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Proyectos</li>
+  </ol>
+</nav>
+
+<h1>Proyectos</h1>
+<hr>
+<%= link_to 'Nuevo proyecto', new_proyecto_path,
+    :class => "btn btn-secondary" %>
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @proyectos.each do |proyecto| %>
+      <tr>
+        <th scoe="row"><%= proyecto.id %></td>
+        <td><%= proyecto.nombre %></td>
+        <td><%= proyecto.descripcion %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', proyecto_path(proyecto),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Editar', edit_proyecto_path(proyecto),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Eliminar', proyecto_path(proyecto),
+              :class => "btn btn-secondary btn-sm",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</p>

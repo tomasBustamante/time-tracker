@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @proyecto.nombre %></li>
+  </ol>
+</nav>
+
+<h2>Editar proyecto</h2>
+
+<%= render 'form' %>
+
+<%= link_to 'Atrás', proyectos_path,
+    :class => "btn btn-secondary btn-sm" %>

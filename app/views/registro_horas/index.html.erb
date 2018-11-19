@@ -1,0 +1,39 @@
+<h1>Mis tareas</h1>
+<hr>
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Horas estimadas</th>
+        <th scope="col">Horas cargadas</th>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Requerimiento</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @proyectos.each do |proyecto|
+       proyecto.requerimientos.each do |requerimiento|
+       requerimiento.tareas.each do |tarea| %>
+      <tr>
+        <th scoe="row"><%= tarea.id %></td>
+        <td><%= tarea.descripcion %></td>
+        <td><%= tarea.estado %></td>
+        <td><%= tarea.horas_estimadas %></td>
+        <td><%= tarea.horas_cargadas %></td>
+        <td><%= proyecto.nombre %></td>
+        <td><%= requerimiento.nombre %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Cargar horas', "#",
+              :class => "btn btn-secondary btn-sm" %>
+        </td>
+      </tr>
+    <% end end end %>
+    </tbody>
+  </table>
+</p>

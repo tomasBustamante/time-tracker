@@ -1,0 +1,81 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item"><%= link_to @proyecto.nombre, proyecto_path(@proyecto) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @requerimiento.nombre %></li>
+  </ol>
+</nav>
+
+<h2>Detalles del requerimiento</h2>
+<hr>
+<p>
+  <strong>Nombre:</strong>
+  <%= @requerimiento.nombre %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @requerimiento.descripcion %>
+</p>
+
+<hr>
+
+<h3>Tareas</h3>
+
+<p>
+  <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#nuevaTarea" aria-expanded="false" aria-controls="nuevaTarea">
+    Nueva tarea
+  </button>
+</p>
+
+<div class="collapse" id="nuevaTarea">
+  <div class="card card-body">
+    <h3>Agregar tarea</h3>
+    <%= render 'tareas/form' %>
+  </div>
+</div>
+
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Horas estimadas</th>
+        <th scope="col">Horas cargadas</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @requerimiento.tareas.each do |tarea| next if tarea.new_record? %>
+      <tr>
+        <th scoe="row"><%= tarea.id %></td>
+        <td><%= tarea.descripcion %></td>
+        <td><%= tarea.estado %></td>
+        <td><%= tarea.empleado %></td>
+        <td><%= tarea.horas_estimadas %></td>
+        <td><%= tarea.horas_cargadas %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Editar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Eliminar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
+              :class => "btn btn-secondary btn-sm",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</p>
+
+<hr>
+<%= link_to 'Editar requerimiento', '#',
+    :class => "btn btn-secondary btn-sm" %>
+<%= link_to 'Atrás', proyecto_path(@proyecto),
+    :class => "btn btn-secondary btn-sm" %>

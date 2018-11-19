@@ -2,8 +2,15 @@
 
 [![Build Status](https://travis-ci.org/tomasBustamante/time-tracker.svg?branch=master)](https://travis-ci.org/tomasBustamante/time-tracker)
 [![Coverage Status](https://coveralls.io/repos/github/tomasBustamante/time-tracker/badge.svg?branch=master)](https://coveralls.io/github/tomasBustamante/time-tracker?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/130b63d0d7d64eb592cc0d168202a326)](https://app.codacy.com/app/tomasBustamante/time-tracker?utm_source=github.com&utm_medium=referral&utm_content=tomasBustamante/time-tracker&utm_campaign=Badge_Grade_Settings)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Aplicación que permite el registro y seguimiento de las horas trabajadas por día asociadas a tareas de diversos proyectos.
+
+## Despliegue a Heroku
+
+-   Producción: <https://zeit-tracker.herokuapp.com/>
+-   Desarrollo: <https://zeit-tracker-dev.herokuapp.com/>
 
 ## Configuración inicial
 
@@ -71,7 +78,7 @@ exit
 
 5.  Instalación de dependencias:
 
-  El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
+    El siguiente comando instalará todas las gemas especificadas en el archivo Gemfile
 
 ```console
 $ bundle install
@@ -86,7 +93,7 @@ $ rails db:migrate
 
 7.  Instalación de los _frameworks_ de pruebas automatizadas:
 
-  El siguiente comando instala Rspec para las pruebas unitarias:
+    El siguiente comando instala Rspec para las pruebas unitarias:
 
 ```console
 $ bundle exec rails generate rspec:install
@@ -112,16 +119,16 @@ $ bundle exec cucumber
 
 ## Procedimiento de trabajo
 
--  La primera vez:
+-   La primera vez:
 
 ```console
 $ git clone https://github.com/tomasBustamante/time-tracker.git
 $ cd time-tracker
 ```
 
--  Siempre:
+-   Siempre:
 
-  Descarga de la última versión:
+    Descarga de la última versión:
 
 ```console
 $ git pull origin master
@@ -139,3 +146,4 @@ $ git push origin master
 
 1.  [Tutorial de configuración inicial](https://medium.com/craft-academy/getting-started-with-rails-tests-continuous-integration-deployment-7b5bfec905a5)
 2.  [Tutorial oficial de Rails](https://edgeguides.rubyonrails.org/getting_started.html)
+3.  [Pruebas de aceptación con Cucumber](https://semaphoreci.com/community/tutorials/introduction-to-writing-acceptance-tests-with-cucumber)
