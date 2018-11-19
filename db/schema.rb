@@ -10,9 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 0) do
+=======
+ActiveRecord::Schema.define(version: 2018_11_19_175150) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< Updated upstream
+=======
+  create_table "proyectos", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recursos", force: :cascade do |t|
+    t.string "nombre"
+    t.text "rol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requerimientos", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.bigint "proyecto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proyecto_id"], name: "index_requerimientos_on_proyecto_id"
+  end
+
+  create_table "tareas", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "horas_estimadas"
+    t.integer "horas_cargadas"
+    t.date "fecha"
+    t.string "empleado"
+    t.bigint "requerimiento_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "estado"
+    t.index ["requerimiento_id"], name: "index_tareas_on_requerimiento_id"
+  end
+
+  add_foreign_key "requerimientos", "proyectos"
+  add_foreign_key "tareas", "requerimientos"
+>>>>>>> Stashed changes
 end

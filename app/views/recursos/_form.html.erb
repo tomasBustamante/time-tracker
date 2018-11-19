@@ -1,0 +1,32 @@
+<%= form_with model: @recurso, local: true do |form| %>
+
+    <% if @recurso.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@recurso.errors.count, "error") %> prohibited
+          this project from being saved:
+        </h2>
+        <ul>
+          <% @recurso.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="form-group">
+      <%= form.label :nombre %><br>
+      <%= form.text_field :nombre, :class => "form-control"  %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :rol %><br>
+      <%= form.text_area :rol, :class => "form-control" %>
+    </div>
+  
+    <p>
+      <%= form.submit %>
+    </p>
+  
+  <% end %>
+  

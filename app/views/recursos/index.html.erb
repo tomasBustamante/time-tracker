@@ -1,0 +1,54 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Recursos</li>
+  </ol>
+</nav>
+
+
+<h1>Recursos</h1>
+<hr>
+<%= link_to 'Nuevo Recurso', new_recurso_path,
+:class => "btn btn-secondary" %>
+
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <% @recursos.each do |recurso| %>
+      <tr>
+        <th scoe="row"><%= recurso.id %></td>
+        <td><%= recurso.nombre %></td>
+        <td><%= recurso.rol %></td>
+        <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
+          <%= link_to 'Mostrar', recurso_path(recurso),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Editar', edit_recurso_path(recurso),
+              :class => "btn btn-secondary btn-sm" %>
+          <%= link_to 'Eliminar', recurso_path(recurso),
+              :class => "btn btn-secondary btn-sm",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</p>
+
+
+
+
+
+
+
+
+
+
+
