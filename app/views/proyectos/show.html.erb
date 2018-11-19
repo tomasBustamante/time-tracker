@@ -45,7 +45,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @proyecto.requerimientos.each do |requerimiento| %>
+    <% @proyecto.requerimientos.each do |requerimiento| next if requerimiento.new_record? %>
       <tr>
         <th scoe="row"><%= requerimiento.id %></td>
         <td><%= requerimiento.nombre %></td>

@@ -50,7 +50,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @requerimiento.tareas.each do |tarea| %>
+    <% @requerimiento.tareas.each do |tarea| next if tarea.new_record? %>
       <tr>
         <th scoe="row"><%= tarea.id %></td>
         <td><%= tarea.descripcion %></td>
@@ -59,11 +59,11 @@
         <td><%= tarea.horas_estimadas %></td>
         <td><%= tarea.horas_cargadas %></td>
         <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
-          <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, requerimiento.proyecto, tarea],
+          <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Editar', [tarea.requerimiento.proyecto, requerimiento.proyecto, tarea],
+          <%= link_to 'Editar', "#",
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Eliminar', [tarea.requerimiento.proyecto, requerimiento.proyecto, tarea],
+          <%= link_to 'Eliminar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
               :class => "btn btn-secondary btn-sm",
               method: :delete,
               data: { confirm: '¿Estás seguro?' } %>

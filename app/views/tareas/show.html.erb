@@ -1,0 +1,37 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item"><%= link_to @proyecto.nombre, proyecto_path(@proyecto) %></li>
+    <li class="breadcrumb-item"><%= link_to @requerimiento.nombre, proyecto_requerimiento_path(:id => @requerimiento.id) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @tarea.descripcion %></li>
+  </ol>
+</nav>
+
+<h2><%= @tarea.descripcion %></h2>
+<hr>
+<p>
+  <strong>Estado:</strong>
+  <%= @tarea.estado %>
+</p>
+
+<p>
+  <strong>Empleado asignado:</strong>
+  <%= @tarea.empleado %>
+</p>
+
+<p>
+  <strong>Horas estimadas:</strong>
+  <%= @tarea.horas_estimadas %>
+</p>
+
+<p>
+  <strong>Horas cargadas:</strong>
+  <%= @tarea.horas_cargadas %>
+</p>
+
+<hr>
+<%= link_to 'Editar tarea', '#',
+    :class => "btn btn-secondary btn-sm" %>
+<%= link_to 'Atrás', proyecto_requerimiento_path(:id => @requerimiento.id),
+    :class => "btn btn-secondary btn-sm" %>

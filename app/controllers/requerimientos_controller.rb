@@ -5,12 +5,13 @@ class RequerimientosController < ApplicationController
 
   def show
     @proyecto = Proyecto.find(params[:proyecto_id])
-    @requerimiento = @proyecto.requerimientos.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:id])
   end
 
   def edit
     @proyecto = Proyecto.find(params[:proyecto_id])
-    @requerimiento = @proyecto.requerimientos.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:id])
+    #@requerimiento = @proyecto.requerimientos.find(params[:id])
   end
 
   def create
