@@ -31,7 +31,7 @@
 </p>
 
 <hr>
-<%= link_to 'Editar tarea', '#',
+<%= link_to 'Cargar horas', edit_proyecto_requerimiento_tarea_path(@tarea.requerimiento.proyecto, @tarea.requerimiento, @tarea),
     :class => "btn btn-secondary btn-sm" %>
 <%= link_to 'Atrás', proyecto_requerimiento_path(:id => @requerimiento.id),
     :class => "btn btn-secondary btn-sm" %>

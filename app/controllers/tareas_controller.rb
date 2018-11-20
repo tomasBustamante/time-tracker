@@ -30,6 +30,18 @@ class TareasController < ApplicationController
     redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
   end
 
+  def update
+    @tarea = Tarea.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:requerimiento_id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
+
+    if @tarea.update(tareas_params)
+      redirect_to registro_horas_path
+    else
+      render 'edit'
+    end
+  end
+
   private
     def tareas_params
       params.require(:tarea).permit(:descripcion, :horas_estimadas,

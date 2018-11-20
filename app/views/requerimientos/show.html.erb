@@ -61,7 +61,7 @@
         <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
           <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Editar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
+          <%= link_to 'Editar', edit_proyecto_requerimiento_tarea_path(tarea.requerimiento.proyecto, tarea.requerimiento, tarea),
               :class => "btn btn-secondary btn-sm" %>
           <%= link_to 'Eliminar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
               :class => "btn btn-secondary btn-sm",
