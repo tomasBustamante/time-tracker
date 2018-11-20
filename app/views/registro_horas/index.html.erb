@@ -29,8 +29,6 @@
         <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
           <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Cargar horas', edit_proyecto_requerimiento_tarea_path(tarea.requerimiento.proyecto, tarea.requerimiento, tarea),
-              :class => "btn btn-secondary btn-sm" %>
         </td>
       </tr>
     <% end end end %>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :proyectos do
     resources :requerimientos do
-      resources :tareas
+      resources :tareas do
+        resources :registro_horas
+      end
     end
   end
   resources :registro_horas
