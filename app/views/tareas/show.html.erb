@@ -24,11 +24,60 @@
   <strong>Horas estimadas:</strong>
   <%= @tarea.horas_estimadas %>
 </p>
-
+<hr>
+<h3>Horas cargadas</h3>
 <p>
-  <strong>Horas cargadas:</strong>
+  <strong>Total:</strong>
   <%= @tarea.horas_cargadas %>
 </p>
+<p>
+  <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#cargaDeHoras" aria-expanded="false" aria-controls="cargaDeHoras">
+    Cargar horas
+  </button>
+</p>
+
+<div class="collapse" id="cargaDeHoras">
+  <div class="card card-body">
+    <h3>Cargar horas</h3>
+    <%= form_with(model: [ @tarea.registro_horas.build ], local: true) do |form| %>
+
+      <div class="form-group">
+        <%= form.label :horas %><br>
+        <%= form.number_field :horas, :class => "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= form.label :fecha %><br>
+        <%= form.date_field :fecha, :class => "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Recurso</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Horas</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @tarea.registro_horas.each do |registro_hora| next if registro_hora.new_record? %>
+      <tr>
+        <th scoe="row"><%= tarea.id %></td>
+        <td><%= horas_cargada.recurso %></td>
+        <td><%= horas_cargada.fecha %></td>
+        <td><%= horas_cargada.horas %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</p>
+
+<hr>
 
 <hr>
 <%= link_to 'Cargar horas', edit_proyecto_requerimiento_tarea_path(@tarea.requerimiento.proyecto, @tarea.requerimiento, @tarea),
