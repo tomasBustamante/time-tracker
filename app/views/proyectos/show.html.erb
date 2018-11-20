@@ -30,7 +30,20 @@
 <div class="collapse" id="nuevoRequerimiento">
   <div class="card card-body">
     <h3>Agregar requerimiento</h3>
-    <%= render 'requerimientos/form' %>
+    <%= form_for ([@proyecto, Requerimiento.new]) do |form| %>
+
+      <div class="form-group">
+        <%= form.label :nombre %><br>
+        <%= form.text_field :nombre, :class => "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= form.label :descripcion %><br>
+        <%= form.text_area :descripcion, :class => "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -53,7 +66,7 @@
         <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
           <%= link_to 'Mostrar', [requerimiento.proyecto, requerimiento],
               :class => "btn btn-secondary btn-sm" %>
-          <%= link_to 'Editar', [requerimiento.proyecto, requerimiento],
+          <%= link_to 'Editar', edit_proyecto_requerimiento_path(@proyecto, requerimiento),
               :class => "btn btn-secondary btn-sm" %>
           <%= link_to 'Eliminar', [requerimiento.proyecto, requerimiento],
               :class => "btn btn-secondary btn-sm",
