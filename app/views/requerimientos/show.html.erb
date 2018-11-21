@@ -7,6 +7,10 @@
   </ol>
 </nav>
 
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
+
 <h2>Detalles del requerimiento</h2>
 <hr>
 <p>

@@ -17,7 +17,8 @@ class RequerimientosController < ApplicationController
   def create
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.create(requerimiento_params)
-    redirect_to proyecto_path(@proyecto)
+    flash[:notice] = "El requerimiento fue creado satisfactoriamente."
+    redirect_to @requerimiento
   end
 
   def destroy
