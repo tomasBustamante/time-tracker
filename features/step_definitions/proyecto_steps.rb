@@ -4,7 +4,7 @@ Cuando("voy a la página de proyectos") do
 end
 
 Entonces("debería ver el botón {string}") do |string|
-  page.has_content?("string")
+  page.has_content?(string)
 end
 
 Dado("que estoy en la página de proyectos") do
@@ -32,5 +32,5 @@ Cuando("hago click en el botón {string}") do |string|
 end
 
 Entonces("debería ver el mensaje {string}") do |string|
-  page.has_content?("string")
+  page.has_content?(string)
 end
