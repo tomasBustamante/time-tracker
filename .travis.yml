@@ -4,6 +4,7 @@ rvm:
 before_script:
 - bundle exec rake db:create --all
 - bundle exec rake db:migrate
+- bundle exec rake db:seed
 script:
 - bundle exec rake ci:tests
 services:
