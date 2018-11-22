@@ -28,7 +28,7 @@
         <td><%= requerimiento.nombre %></td>
         <td class="btn-group text-right" role="group" aria-label="opciones" data-align="right">
           <%= link_to 'Mostrar', [tarea.requerimiento.proyecto, tarea.requerimiento, tarea],
-              :class => "btn btn-secondary btn-sm" %>
+              :class => "btn btn-secondary btn-sm", :id => "tarea_mostrar" %>
         </td>
       </tr>
     <% end end end %>
