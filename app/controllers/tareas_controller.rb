@@ -19,6 +19,7 @@ class TareasController < ApplicationController
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.find(params[:requerimiento_id])
     @tarea = @requerimiento.tareas.create(tareas_params)
+    flash[:notice] = "La tarea #{@tarea.id} fue creada satisfactoriamente."
     redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
   end
 
