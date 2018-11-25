@@ -3,7 +3,7 @@ class Tarea < ApplicationRecord
   has_many :registro_horas, dependent: :destroy
   validates :descripcion, presence: true, length: { minimum: 5 }
   validates :horas_cargadas, numericality: {
-    greater_than: 0,
+    greater_than_or_equal_to: 0,
     message: "no pueden ser negativas." }
   validates :horas_cargadas, numericality: {
     less_than_or_equal_to: :horas_estimadas,

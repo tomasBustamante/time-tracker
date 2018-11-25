@@ -19,7 +19,8 @@ class TareasController < ApplicationController
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.find(params[:requerimiento_id])
     params['tarea']['horas_cargadas'] = 0
-    if @tarea = @requerimiento.tareas.create(tareas_params)
+    puts tareas_params
+    if ((@tarea = @requerimiento.tareas.create(tareas_params)) && @tarea.id)
       flash[:notice] = "La tarea #{@tarea.id} fue creada satisfactoriamente."
       redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
     else
