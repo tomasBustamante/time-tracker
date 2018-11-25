@@ -8,30 +8,106 @@
   </ol>
 </nav>
 
-<h2><%= @tarea.descripcion %></h2>
+<% if @tarea.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger" role="alert">
+    <ul>
+      <% @tarea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>Tarea: <%= @tarea.descripcion %></h2>
 <hr>
-<p>
-  <strong>Estado:</strong>
-  <%= @tarea.estado %>
-</p>
+<div class="row">
+  <div class="col-sm-6">
+    <form>
+      <fieldset disabled>
+        <div class="form-group row">
+          <label for="nombreProyecto" class="col-sm-4 col-form-label">Proyecto</label>
+          <div class="col-sm-8">
+            <input type="string" class="form-control" id="nombreProyecto" value="<%= @proyecto.nombre %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nombreRequerimiento" class="col-sm-4 col-form-label">Requerimiento</label>
+          <div class="col-sm-8">
+            <input type="string" class="form-control" id="nombreRequerimiento" value="<%= @requerimiento.nombre %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="estadoTarea" class="col-sm-4 col-form-label">Estado de la tarea</label>
+          <div class="col-sm-8">
+            <input type="string" class="form-control" id="estadoTarea" value="<%= @tarea.estado %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="recursoAsignado" class="col-sm-4 col-form-label">Recurso asignado</label>
+          <div class="col-sm-8">
+            <input type="string" class="form-control" id="recursoAsignado" value="<%= @tarea.empleado %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="horasEstimadas" class="col-sm-4 col-form-label">Horas estimadas</label>
+          <div class="col-sm-8">
+            <input type="integer" class="form-control" id="horasEstimadas" value="<%= @tarea.horas_estimadas %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="horasCargadas" class="col-sm-4 col-form-label">Horas cargadas</label>
+          <div class="col-sm-8">
+            <input type="integer" class="form-control" id="horasCargadas" value="<%= @tarea.horas_cargadas %>">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <p>
+      <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#cargaDeHoras"
+              aria-expanded="false" aria-controls="cargaDeHoras" id="cargar_horas">
+        Cargar horas
+      </button>
+    </p>
 
-<p>
-  <strong>Empleado asignado:</strong>
-  <%= @tarea.empleado %>
-</p>
+    <div class="collapse" id="cargaDeHoras">
+      <div class="card card-body">
+        <h3>Cargar horas</h3>
+        <%= form_with(model: [ @proyecto, @requerimiento, @tarea, @tarea.registro_horas.build ], local: true) do |form| %>
+          <div class="form-group">
+            <%= form.label :horas %><br>
+            <%= form.number_field :horas, :class => "form-control"  %>
+          </div>
+          <div class="form-group">
+            <%= form.label :fecha %><br>
+            <%= form.date_field :fecha, :class => "form-control", :value => Time.now.strftime('%Y-%m-%d') %>
+          </div>
+          <div class="form-group">
+            <%= form.submit "Cargar horas" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Horas estimadas:</strong>
-  <%= @tarea.horas_estimadas %>
-</p>
-
-<p>
-  <strong>Horas cargadas:</strong>
-  <%= @tarea.horas_cargadas %>
-</p>
-
-<hr>
-<%= link_to 'Editar tarea', '#',
-    :class => "btn btn-secondary btn-sm" %>
-<%= link_to 'Atrás', proyecto_requerimiento_path(:id => @requerimiento.id),
-    :class => "btn btn-secondary btn-sm" %>
+  <div class="col-sm-6">
+    <h3>Horas cargadas</h3>
+    <p>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @tarea.registro_horas.each do |registro_hora| next if registro_hora.new_record? %>
+          <tr>
+            <td><%= registro_hora.fecha %></td>
+            <td><%= registro_hora.horas %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </p>
+  </div>
+</div>

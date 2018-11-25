@@ -1,0 +1,50 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><%= link_to 'Proyectos', proyectos_path %></li>
+    <li class="breadcrumb-item"><%= link_to @proyecto.nombre, proyecto_path(@proyecto) %></li>
+    <li class="breadcrumb-item"><%= link_to @requerimiento.nombre, proyecto_requerimiento_path(:id => @requerimiento.id) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @tarea.descripcion %></li>
+  </ol>
+</nav>
+
+<h2>Cargar horas en tarea <% @tarea.descripcion %></h2>
+<hr>
+<%= form_for ([@proyecto, @requerimiento, @tarea]), :class => "form-inline" do |form| %>
+  <fieldset disabled>
+  <div class="form-group">
+    <%= form.label :descripcion %><br>
+    <%= form.text_field :descripcion, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= form.label :empleado %><br>
+    <%= form.text_field :empleado, :class => "form-control"  %>
+  </div>
+  <div class="form-group form-row">
+    <div class="col-6">
+    <%= form.label :horas_estimadas %><br>
+    <%= form.number_field :horas_estimadas, :class => "form-control"  %>
+    </div>
+    <div class="col-6">
+    <%= form.label :horas_cargadas %><br>
+    <%= form.number_field :horas_cargadas, :class => "form-control"  %>
+    </div>
+  </div>
+  </fieldset>
+  <div class="form-group form-row">
+    <div class="col-6">
+    <%= form.label :horas_cargadas %><br>
+    <%= form.number_field :horas_cargadas, :class => "form-control"  %>
+    </div>
+    <div class="col-6">
+    <%= form.label :fecha %><br>
+    <%= form.date_field :fecha, :class => "form-control"  %>
+    </div>
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Atrás', registro_horas_path,
+    :class => "btn btn-secondary btn-sm" %>

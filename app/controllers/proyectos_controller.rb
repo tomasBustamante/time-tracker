@@ -19,6 +19,7 @@ class ProyectosController < ApplicationController
     @proyecto = Proyecto.new(proyecto_params)
 
     if @proyecto.save
+      flash[:notice] = "El proyecto fue creado satisfactoriamente."
       redirect_to @proyecto
     else
       render 'new'

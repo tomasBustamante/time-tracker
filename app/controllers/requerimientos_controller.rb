@@ -17,6 +17,7 @@ class RequerimientosController < ApplicationController
   def create
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.create(requerimiento_params)
+    flash[:notice] = "El requerimiento #{@requerimiento.id} fue creado satisfactoriamente."
     redirect_to proyecto_path(@proyecto)
   end
 
@@ -28,10 +29,11 @@ class RequerimientosController < ApplicationController
   end
 
   def update
-    @requerimiento = Requerimiento.find(params[:requerimiento_id])
+    @requerimiento = Requerimiento.find(params[:id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
 
     if @requerimiento.update(requerimiento_params)
-      redirect_to @requerimiento
+      redirect_to proyecto_path(@proyecto)
     else
       render 'edit'
     end

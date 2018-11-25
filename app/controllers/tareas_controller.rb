@@ -18,8 +18,13 @@ class TareasController < ApplicationController
   def create
     @proyecto = Proyecto.find(params[:proyecto_id])
     @requerimiento = @proyecto.requerimientos.find(params[:requerimiento_id])
-    @tarea = @requerimiento.tareas.create(tareas_params)
-    redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
+    params['tarea']['horas_cargadas'] = 0
+    if @tarea = @requerimiento.tareas.create(tareas_params)
+      flash[:notice] = "La tarea #{@tarea.id} fue creada satisfactoriamente."
+      redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
+    else
+      render 'requerimientos/show'
+    end
   end
 
   def destroy
@@ -28,6 +33,18 @@ class TareasController < ApplicationController
     @tarea = @requerimiento.tareas.find(params[:id])
     @tarea.destroy
     redirect_to proyecto_requerimiento_path(:id => @requerimiento.id)
+  end
+
+  def update
+    @tarea = Tarea.find(params[:id])
+    @requerimiento = Requerimiento.find(params[:requerimiento_id])
+    @proyecto = Proyecto.find(params[:proyecto_id])
+
+    if @tarea.update(tareas_params)
+      redirect_to proyecto_requerimiento_tarea_path(@tarea)
+    else
+      render 'edit'
+    end
   end
 
   private

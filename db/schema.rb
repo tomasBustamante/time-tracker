@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_181106) do
+ActiveRecord::Schema.define(version: 2018_11_20_130307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,13 @@ ActiveRecord::Schema.define(version: 2018_11_19_181106) do
   end
 
   create_table "registro_horas", force: :cascade do |t|
-    t.datetime "hora_inicio"
-    t.datetime "hora_fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "fecha"
+    t.integer "horas"
+    t.string "recurso"
+    t.bigint "tarea_id"
+    t.index ["tarea_id"], name: "index_registro_horas_on_tarea_id"
   end
 
   create_table "requerimientos", force: :cascade do |t|
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_181106) do
     t.index ["requerimiento_id"], name: "index_tareas_on_requerimiento_id"
   end
 
+  add_foreign_key "registro_horas", "tareas"
   add_foreign_key "requerimientos", "proyectos"
   add_foreign_key "tareas", "requerimientos"
 end
