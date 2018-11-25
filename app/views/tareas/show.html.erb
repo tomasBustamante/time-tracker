@@ -140,8 +140,8 @@ function hora_valida(){
   var div_result = document.getElementById("div_result");
   var hora = Number(document.getElementById("registro_hora_horas").value);
   
-  if (hora > 8){
-    result.innerHTML =  "La hora debe ser menor a 8 hs";
+  if (hora > 8 || hora <= 0){
+    result.innerHTML =  "La hora debe ser mayor a 0 y como máximo 8 hs";
     div_result.style.display = "block";
     return false;
   }
