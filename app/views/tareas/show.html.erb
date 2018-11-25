@@ -62,15 +62,23 @@
     <div class="collapse" id="cargaDeHoras">
       <div class="card card-body">
         <h3>Cargar horas</h3>
-        <%= form_with(model: [ @proyecto, @requerimiento, @tarea, @tarea.registro_horas.build ], local: true) do |form| %>
-
+        <div>
+        <div id="div_result" class="alert alert-danger" role="alert" style="display: none;">
+            <p id="result"></p> 
+        </div>
+        </div>
+        <%= form_with(model: [ @proyecto, @requerimiento, @tarea, @tarea.registro_horas.build ], class: "needs-validation", local: true) do |form| %>
           <div class="form-group">
             <%= form.label :horas %><br>
-            <%= form.number_field :horas, :class => "form-control"  %>
+            <%= form.number_field :horas, :class => "form-control", :required => true, placeholder: "horas" %>
+            <div class="invalid-feedback">
+              Porfavor ingrese un número.
+            </div>
           </div>
+         
           <div class="form-group">
             <%= form.label :fecha %><br>
-            <%= form.date_field :fecha, :class => "form-control", :value => Time.now.strftime('%Y-%m-%d') %>
+            <%= form.date_field :fecha, :class => "form-control", :value => Time.now.strftime('%Y-%m-%d'), :required => true %>
           </div>
           <div class="form-group">
             <%= form.submit "Cargar horas" %>
@@ -102,3 +110,50 @@
     </p>
   </div>
 </div>
+
+<!-- JavaScript validation for create registro_hora -->
+<script>
+  (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          if (!hora_valida()){
+            event.preventDefault();
+            event.stopPropagation();
+            $("alert").alert();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+
+function hora_valida(){
+  var result = document.getElementById("result");
+  var div_result = document.getElementById("div_result");
+  var hora = Number(document.getElementById("registro_hora_horas").value);
+  
+  if (hora > 8){
+    result.innerHTML =  "La hora debe ser menor a 8 hs";
+    div_result.style.display = "block";
+    return false;
+  }
+
+  var horas_estimadas = Number(document.getElementById("horasEstimadas").value);
+  var horas_cargadas = Number(document.getElementById("horasCargadas").value);
+  if ((horas_cargadas + hora) > horas_estimadas){
+    result.innerHTML =  "La hora debe ser menor a " + (horas_estimadas - horas_cargadas) + " hs";
+    div_result.style.display = "block";
+    return false;
+  }
+  return true;
+}
+
+</script>
