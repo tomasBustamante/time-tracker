@@ -8,10 +8,13 @@
   </ol>
 </nav>
 
-<% if @tarea.errors.any? %>
+<% if @tarea.errors.any? || !@registro_hora.nil? %>
   <div id="error_explanation" class="alert alert-danger" role="alert">
     <ul>
       <% @tarea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      <% @registro_hora.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
