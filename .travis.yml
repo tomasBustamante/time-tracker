@@ -22,4 +22,3 @@ deploy:
     repo: tomasBustamante/time-tracker
   run:
     - "rails db:migrate"
-    - "rails db:reset db:seed"
