@@ -21,6 +21,10 @@ class RegistroHorasController < ApplicationController
       @registro_hora = @tarea.registro_horas.create(registro_horas_params)
       if !@registro_hora.errors.any?
         if @tarea.update({"horas_cargadas" => horas_cargadas_post})
+          if (@tarea.horas_cargadas == @tarea.horas_estimadas)
+            @tarea.update({"estado" => "Finalizado"})
+            flash[:notice] = "¡Enhorabuena! ¡Has finalizado la tarea!."
+          end
           redirect_to [@tarea.requerimiento.proyecto, @tarea.requerimiento, @tarea]
         else
           @tarea.registro_horas.delete(@registro_hora.id)
