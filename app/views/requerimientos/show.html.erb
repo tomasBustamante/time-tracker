@@ -11,6 +11,16 @@
   <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
 <% end %>
 
+<% if (!@tarea.nil? && @tarea.errors.any?) %>
+  <div id="error_explanation" class="alert alert-danger" role="alert">
+    <ul>
+      <% @tarea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>Detalles del requerimiento</h2>
 <hr>
 <p>
