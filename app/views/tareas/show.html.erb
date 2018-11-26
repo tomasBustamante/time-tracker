@@ -14,8 +14,10 @@
       <% @tarea.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
+      <% if !@registro_hora.nil? %>
       <% @registro_hora.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
+      <% end %>
       <% end %>
     </ul>
   </div>
