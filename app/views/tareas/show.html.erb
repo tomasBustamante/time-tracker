@@ -91,7 +91,7 @@
             <%= form.date_field :fecha, :class => "form-control", :value => Time.now.strftime('%Y-%m-%d') %>
           </div>
           <div class="form-group">
-            <%= form.submit "Cargar horas" %>
+            <%= form.submit "Cargar horas", :id => "submit_cargar_horas" %>
           </div>
         <% end %>
       </div>

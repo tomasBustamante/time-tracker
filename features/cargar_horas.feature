@@ -14,3 +14,12 @@
     Y que ya se creó un proyecto, un requerimiento y una tarea
     Cuando selecciono la tarea "Tarea de ejemplo"
     Entonces debería ir a la página de la tarea
+
+  Escenario: El empleado carga dos horas en una tarea asignada a él
+    Dado que ya se creó un proyecto, un requerimiento y una tarea
+    Y que selecciono la tarea "Tarea de ejemplo"
+    Cuando hago click en el botón "cargar_horas"
+    Y que completo el campo "registro_hora_horas" con "2"
+    Y que completo el campo "registro_hora_fecha" con "11/26/2018"
+    Y hago click en el botón "submit_cargar_horas"
+    Entonces el campo "horasCargadas" debería tener el valor "2"
