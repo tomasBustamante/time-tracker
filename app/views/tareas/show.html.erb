@@ -8,6 +8,10 @@
   </ol>
 </nav>
 
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
+
 <% if @tarea.errors.any? || !@registro_hora.nil? %>
   <div id="error_explanation" class="alert alert-danger" role="alert">
     <ul>
